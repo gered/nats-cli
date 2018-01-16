@@ -20,7 +20,7 @@ func Connect(url string, tls bool, certPath string, keyPath string, caCertPath s
 		var err error
 
 		tlsverify := func(o *nats.Options) error {
-			if o.TLSConfig == nil {
+			if o.TLSConfig != nil {
 				o.TLSConfig.InsecureSkipVerify = !verify
 			} else {
 				o.TLSConfig = &ctls.Config{InsecureSkipVerify: !verify}
