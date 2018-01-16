@@ -11,7 +11,7 @@ import (
 )
 
 func usage() {
-	log.Fatalf("nats-sub [-s server] [-ts] [-tls] [-tlscert CERT_FILE] [-tlskey KEY_FILE] [-tlscacert CA_FILE] <subject>")
+	log.Fatalf("nats-sub [-s server] [-ts] [-tls] [-tlscert CERT_FILE] [-tlskey KEY_FILE] [-tlscacert CA_FILE] [-tlsverify] <subject>")
 }
 
 func main() {
@@ -23,6 +23,7 @@ func main() {
 	var tlsCertPath = flag.String("tlscert", "", "Certificate file")
 	var tlsKeyPath = flag.String("tlskey", "", "Private key file for certificate")
 	var tlsCACertPath = flag.String("tlscacert", "", "Client certificate CA file")
+	var tlsVerify = flag.Bool("tlsverify", false, "Enable TLS connection verification")
 
 	flag.Usage = usage
 	flag.Parse()
@@ -38,7 +39,7 @@ func main() {
 		log.SetFlags(log.LstdFlags)
 	}
 
-	conn, err := nc.Connect(*url, *tls, *tlsCertPath, *tlsKeyPath, *tlsCACertPath)
+	conn, err := nc.Connect(*url, *tls, *tlsCertPath, *tlsKeyPath, *tlsCACertPath, *tlsVerify)
 	if err != nil {
 		log.Fatalf("Failed to connect to NATS: %s", err)
 	}

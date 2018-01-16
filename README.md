@@ -7,9 +7,9 @@ supported TLS connections to the NATS server, which I need.
 Includes:
 
 ```
-nats-pub [-s server] [-tls] [-tlscert CERT_FILE] [-tlskey KEY_FILE] [-tlscacert CA_FILE] <subject> <message>
+nats-pub [-s server] [-tls] [-tlscert CERT_FILE] [-tlskey KEY_FILE] [-tlscacert CA_FILE] [-tlsverify] <subject> <message>
 
-nats-sub [-s server] [-ts] [-tls] [-tlscert CERT_FILE] [-tlskey KEY_FILE] [-tlscacert CA_FILE] <subject>
+nats-sub [-s server] [-ts] [-tls] [-tlscert CERT_FILE] [-tlskey KEY_FILE] [-tlscacert CA_FILE] [-tlsverify] <subject>
 
 ```
 
