@@ -37,6 +37,8 @@ func main() {
 
 	if *ts {
 		log.SetFlags(log.LstdFlags)
+	} else {
+		log.SetFlags(0)
 	}
 
 	conn, err := nc.Connect(*url, *tls, *tlsCertPath, *tlsKeyPath, *tlsCACertPath, *tlsVerify)
