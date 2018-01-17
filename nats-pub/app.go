@@ -20,7 +20,7 @@ func main() {
 	var tlsCertPath = flag.String("tlscert", "", "Certificate file")
 	var tlsKeyPath = flag.String("tlskey", "", "Private key file for certificate")
 	var tlsCACertPath = flag.String("tlscacert", "", "Client certificate CA file")
-	var tlsVerify = flag.Bool("tlsverify", true, "Enable TLS connection verification")
+	var tlsVerify = flag.Bool("tlsverify", false, "Enable TLS connection verification")
 
 	flag.Usage = usage
 	flag.Parse()
